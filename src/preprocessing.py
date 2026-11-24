@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from scipy.optimize import minimize
-from scipy.stats import chi2
+from scipy.stats import chi2, lognorm, norm
 
 
 def convert_responses(df_renamed: pd.DataFrame, exclude_non_poli: bool = False) -> pd.DataFrame:
@@ -113,6 +113,30 @@ def chi_square_gof(counts, edges, cdf_func, params, alpha=0.05):
     p_value = chi2.sf(chi2_stat, df=dof)
 
     return expected, chi2_stat, chi2_crit, dof, p_value
+
+
+def run_adhesion_tests(df, variables_config, alpha=0.05):
+    results = []
+    for var in variables_config:
+        observed = df[var["col"]].value_counts().reindex(var["order"], fill_value=0.0).to_numpy()
+
+        for dist_name in var["guesses"]:
+            if dist_name == "Normal":
+                cdf = lambda x, mu, sigma: norm.cdf(x, loc=mu, scale=sigma)
+                lower_bound = -np.inf
+            elif dist_name == "Lognormal":
+                cdf = lambda x, mu_ln, sigma_ln: lognorm.cdf(x, s=sigma_ln, scale=np.exp(mu_ln))
+                lower_bound = 0.0
+
+            edges = [lower_bound] + var["upper_edges"]
+            guess = var["guesses"][dist_name]
+
+            params = fit_binned_mle(observed, edges, cdf, initial_guess=guess)
+            gof_metrics = chi_square_gof(observed, edges, cdf, params, alpha)
+
+            results.append((var["label"], dist_name, params, observed, *gof_metrics))
+
+    return results
 
 
 def compute_bin_expected_values(edges, dist):
