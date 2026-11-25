@@ -1,7 +1,27 @@
+from enum import Enum
+
 import numpy as np
 import pandas as pd
+from scipy import stats
 from scipy.optimize import minimize
-from scipy.stats import chi2, lognorm, norm
+
+
+class Distribution(Enum):
+    NORMAL = (lambda p1, p2: stats.norm(loc=p1, scale=p2), -np.inf)
+    LOGNORMAL = (lambda p1, p2: stats.lognorm(s=p2, scale=np.exp(p1)), 0.0)
+
+    def __init__(self, factory, lower_bound):
+        self._factory = factory
+        self.lower_bound = lower_bound
+
+    def __call__(self, p1: float, p2: float):
+        return self._factory(p1, p2)
+
+    def cdf(self, x, p1: float, p2: float):
+        return self._factory(p1, p2).cdf(x)
+
+    def __str__(self) -> str:
+        return self.name.capitalize()
 
 
 def convert_responses(df_renamed: pd.DataFrame, exclude_non_poli: bool = False) -> pd.DataFrame:
@@ -109,8 +129,8 @@ def chi_square_gof(counts, edges, cdf_func, params, alpha=0.05):
 
     dof = len(counts) - 1 - len(params)  # K - p - 1
     chi2_stat = np.sum((counts - expected) ** 2 / expected)
-    chi2_crit = chi2.ppf(1 - 0.05, df=dof)
-    p_value = chi2.sf(chi2_stat, df=dof)
+    chi2_crit = stats.chi2.ppf(1 - 0.05, df=dof)
+    p_value = stats.chi2.sf(chi2_stat, df=dof)
 
     return expected, chi2_stat, chi2_crit, dof, p_value
 
@@ -120,21 +140,11 @@ def run_adhesion_tests(df, variables_config, alpha=0.05):
     for var in variables_config:
         observed = df[var["col"]].value_counts().reindex(var["order"], fill_value=0.0).to_numpy()
 
-        for dist_name in var["guesses"]:
-            if dist_name == "Normal":
-                cdf = lambda x, mu, sigma: norm.cdf(x, loc=mu, scale=sigma)
-                lower_bound = -np.inf
-            elif dist_name == "Lognormal":
-                cdf = lambda x, mu_ln, sigma_ln: lognorm.cdf(x, s=sigma_ln, scale=np.exp(mu_ln))
-                lower_bound = 0.0
-
-            edges = [lower_bound] + var["upper_edges"]
-            guess = var["guesses"][dist_name]
-
-            params = fit_binned_mle(observed, edges, cdf, initial_guess=guess)
-            gof_metrics = chi_square_gof(observed, edges, cdf, params, alpha)
-
-            results.append((var["label"], dist_name, params, observed, *gof_metrics))
+        for dist, guess in var["guesses"].items():
+            edges = [dist.lower_bound] + var["upper_edges"]
+            params = fit_binned_mle(observed, edges, dist.cdf, initial_guess=guess)
+            gof_metrics = chi_square_gof(observed, edges, dist.cdf, params, alpha)
+            results.append((var["label"], str(dist), params, observed, *gof_metrics))
 
     return results
 
