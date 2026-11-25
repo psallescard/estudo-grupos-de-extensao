@@ -1,7 +1,7 @@
 """Hypothesis tests from the PRO3201 syllabus, returning tables ready to display (headers in PT-BR).
 
-Covered: descriptive summaries, paired t-test, chi-square test of association, one- and two-way ANOVA
-(partial F tests), Bartlett's test of homogeneity of variances and Scheffé contrasts.
+Covered: descriptive summaries, paired t-test, chi-square test of association (with adjusted residuals), one- and
+two-way ANOVA (partial F tests), Bartlett's test of homogeneity of variances and Scheffé contrasts.
 """
 
 from itertools import combinations
@@ -111,6 +111,23 @@ def chi_square_association(df: pd.DataFrame, row: str, col: str) -> tuple:
         "Decisão (α = 5%)": _decision(res.pvalue),
     }, name="Teste de associação").to_frame()
     return observed, result
+
+
+def standardized_residuals(observed: pd.DataFrame) -> pd.DataFrame:
+    """Adjusted standardized residuals of a contingency table: (O - E) / sqrt(E * (1 - row share) * (1 - column share)).
+    Under H0 each one is approximately N(0, 1), so |residual| > 2 flags the cells that drive the association."""
+    o = observed.to_numpy(dtype=float)
+    n = o.sum()
+    row = o.sum(axis=1, keepdims=True)
+    col = o.sum(axis=0, keepdims=True)
+    expected = row @ col / n
+    adjusted = (o - expected) / np.sqrt(expected * (1 - row / n) * (1 - col / n))
+    return pd.DataFrame(adjusted, index=observed.index, columns=observed.columns).round(2)
+
+
+def row_percentages(observed: pd.DataFrame) -> pd.DataFrame:
+    """Share of each column within each row of a contingency table, in %."""
+    return (observed.div(observed.sum(axis=1), axis=0) * 100).round(1)
 
 
 # ---------------------------------------------------------------------------
