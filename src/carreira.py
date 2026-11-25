@@ -93,7 +93,8 @@ def prepare_front_data(df: pd.DataFrame) -> pd.DataFrame:
         out["anos_de_poli"].clip(upper=3).map({1: "1º ano", 2: "2º ano", 3: "3º ano ou mais"}), YEAR_GROUP_ORDER,
         ordered=True)
     out["estagio_antecipado"] = _categorical(
-        out["momento_estagio"].astype(str).replace(_merge_map("momento_estagio")), INTERNSHIP_ORDER)
+        out["momento_estagio"].astype(str).replace(_merge_map("momento_estagio")).replace(
+            {"Excluído (sem valor)": np.nan}), INTERNSHIP_ORDER)
     out["estagio_ate_3ano"] = (out["estagio_antecipado"] == INTERNSHIP_ORDER[0]).astype(float).where(
         out["estagio_antecipado"].notna())
     out["faixa_media"] = _categorical(
