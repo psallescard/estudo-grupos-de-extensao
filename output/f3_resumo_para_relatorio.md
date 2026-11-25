@@ -112,7 +112,7 @@ Com a coluna `anos_de_poli` antiga (arquivo de 24/11, desalinhada para 30 alunos
 
 **Modelo.** Regressão linear múltipla com resposta $Y$ = 1 (pretende o 1º estágio até o 3º ano) ou 0, o **modelo de probabilidade linear**: cada β é uma diferença em pontos percentuais. Modelo completo definido a priori, com 6 blocos: categoria do grupo, grande área do curso, ano na Poli, objetivo atual, tempo no grupo e ln(horas semanais). n = 179.
 
-**Efeito mecânico do ano.** Quem já está no 4º ano ou depois e ainda não estagiou não pode mais pretender estagiar "até o 3º ano"; para quem está no 3º ano, a janela se reduz ao ano corrente. O ano entra principalmente como **controle** dessa restrição. Proporção que pretende estagiar até o 3º ano: 75% no 1º ano, 53% no 2º e 14% no 3º ano ou mais.
+**Efeito mecânico do ano.** Só quem já está no 4º ano ou depois e ainda não estagiou fica impedido de pretender estagiar "até o 3º ano" (9 alunos na amostra); para quem está no 3º ano, "No 3º ano" continua sendo uma resposta possível. A restrição explica, portanto, parte da queda em "3º ano ou mais", mas não a diferença entre o 1º e o 2º ano. O ano entra principalmente como **controle**. Proporção que pretende estagiar até o 3º ano: 75% no 1º ano, 53% no 2º e 14% no 3º ano ou mais.
 
 **Eliminação por F parcial** (Tabela f3_tab20), nesta ordem:
 
@@ -133,7 +133,7 @@ Com a coluna `anos_de_poli` antiga (arquivo de 24/11, desalinhada para 30 alunos
 
 **Perfis definidos a priori** (Tabela f3_tab22, Figura f3_fig08): os 15 perfis (ano × grande área) vão de −6% (3º ano ou mais, Mecânica, Mecatrônica & Naval) a 93% (1º ano, Produção). Uma estimativa sai de 0–100% e os intervalos de predição individuais saem do intervalo em todos os perfis: o modelo compara perfis, mas não prevê pessoas. Os resíduos formam duas faixas, como esperado para $Y$ 0/1 (Figura f3_fig09, apêndice).
 
-**Conclusão.** Dado o ano na Poli, a grande área do curso é o único bloco, além do ano, mantido pelo critério de eliminação: alunos de Mecânica, Mecatrônica & Naval têm, em média, 23 pontos percentuais a menos que os de Civil & Ambiental. A exclusão da categoria do grupo (p = 0,089, coerente com a P3) e das horas (p = 0,051) é limítrofe, pois o F conjunto rejeita por pouco (p = 0,045). A queda com o ano é sobretudo mecânica, e o ano entra como controle. O modelo explica 26% da variação, e os resultados são associações aproximadas.
+**Conclusão.** Dado o ano na Poli, a grande área do curso é o único bloco, além do ano, mantido pelo critério de eliminação: alunos de Mecânica, Mecatrônica & Naval têm, em média, 23 pontos percentuais a menos que os de Civil & Ambiental. A exclusão da categoria do grupo (p = 0,089, coerente com a P3) e das horas (p = 0,051) é limítrofe, pois o F conjunto rejeita por pouco (p = 0,045). O ano entra sobretudo como controle: a restrição mecânica explica parte da queda no 3º ano ou mais (−62 pontos), mas não a do 1º para o 2º ano (−26 pontos), que é uma associação entre turmas. O modelo explica 26% da variação, e os resultados são associações aproximadas.
 
 ### Síntese da frente
 

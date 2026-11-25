@@ -143,9 +143,20 @@ def category_distribution(df: pd.DataFrame, columns: dict) -> pd.DataFrame:
     return pd.concat(parts, names=["Variável", "Categoria"])
 
 
+GROUPING_LABELS = {
+    "categoria_extensao": "Categoria do grupo",
+    "area_pretendida": "Área pretendida",
+    "motivacao_ingresso": "Motivação de ingresso",
+    "objetivo_faculdade": "Objetivo atual",
+    "anos_de_poli": "Ano na Poli",
+    "momento_estagio": "Momento do 1º estágio",
+    "media_ponderada": "Faixa da média ponderada",
+}
+
+
 def grouping_table(df: pd.DataFrame) -> pd.DataFrame:
     """Every category merge of front 3, with the number of students affected and the reason."""
-    rows = [{"Variável": col, "Categorias originais": " + ".join(levels), "Nova categoria": new,
+    rows = [{"Variável": GROUPING_LABELS[col], "Categorias originais": " + ".join(levels), "Nova categoria": new,
              "n": int(df[col].astype(str).isin(levels).sum()), "Motivo": reason}
             for col, levels, new, reason in GROUPINGS]
     return pd.DataFrame(rows)
