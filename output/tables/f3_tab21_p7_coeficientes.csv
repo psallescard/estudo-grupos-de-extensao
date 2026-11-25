@@ -1,0 +1,8 @@
+,β (estimativa),Erro-padrão,t,p-valor,IC 95% inf,IC 95% sup
+Intercepto (perfil com todas as categorias de referência),0.798,0.106,7.49,3.4e-12,0.587,1.008
+Área do curso: Elétrica & Computação (vs. Civil & Ambiental),0.044,0.092,0.48,0.6346,-0.138,0.225
+"Área do curso: Mecânica, Mecatrônica & Naval (vs. Civil & Ambiental)",-0.234,0.098,-2.39,0.0178,-0.428,-0.041
+Área do curso: Produção (vs. Civil & Ambiental),0.135,0.106,1.27,0.2063,-0.075,0.344
+Área do curso: Outras Engenharias (vs. Civil & Ambiental),-0.015,0.116,-0.13,0.8991,-0.245,0.215
+Ano: 2º ano (vs. 1º ano),-0.264,0.097,-2.73,0.0070,-0.456,-0.073
+Ano: 3º ano ou mais (vs. 1º ano),-0.623,0.1,-6.21,3.8e-09,-0.82,-0.425
