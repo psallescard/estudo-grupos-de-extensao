@@ -1,0 +1,5 @@
+,β (estimativa),Erro-padrão,t,p-valor,IC 95% inf,IC 95% sup
+"Intercepto (Consultoria & Negócios com 1 h/semana; fora dos dados, só ancora a reta)",1.345,0.298,4.51,1.1e-05,0.757,1.933
+Engenharia (vs. Consultoria & Negócios),-0.674,0.197,-3.43,7.6e-04,-1.063,-0.286
+Mercado Financeiro (vs. Consultoria & Negócios),-0.139,0.215,-0.65,0.5192,-0.563,0.285
+ln(horas semanais),0.404,0.093,4.35,2.2e-05,0.221,0.587

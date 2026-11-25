@@ -1,0 +1,5 @@
+Passo,Nº de variáveis no modelo,Variável com maior p,F parcial,gl,p parcial,Decisão,R² ajustado
+1,5,Tempo no grupo,0.8,3; 175,0.4971,"Remover (p ≥ 0,05)",0.198
+2,4,Tempo de deslocamento (min),1.51,1; 178,0.2215,"Remover (p ≥ 0,05)",0.201
+3,3,Grande área do curso,1.89,4; 179,0.1147,"Remover (p ≥ 0,05)",0.199
+4,2,Categoria do grupo,5.99,2; 183,0.0030,"Manter todas (p < 0,05)",0.183

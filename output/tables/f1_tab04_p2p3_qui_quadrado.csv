@@ -1,0 +1,8 @@
+,Teste de associação
+Qui-quadrado (χ²),69.27
+Graus de liberdade,8
+p-valor,6.9e-12
+"V de Cramér (0 = nenhuma, 1 = total)",0.43
+Menor frequência esperada,3.82
+% de caselas com esperado < 5,7%
+Decisão (α = 5%),Rejeita H0

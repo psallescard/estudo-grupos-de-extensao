@@ -1,0 +1,3 @@
+Fator,p sozinho (ANOVA 1 fator),F parcial (controlando o outro fator),gl,p parcial,η² parcial,Decisão (α = 5%)
+Horas semanais no grupo,6.9e-06,7.79,4; 179,8.2e-06,0.148,Rejeita H0
+Tempo no grupo,0.0603,2.49,3; 179,0.0618,0.04,Não rejeita H0

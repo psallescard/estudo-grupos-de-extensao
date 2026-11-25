@@ -1,0 +1,11 @@
+,Teste t pareado
+n (pares),187
+Média de d,2.267
+Desvio-padrão de d,1.165
+IC 95% da média de d,[2.10; 2.44]
+Estatística t,26.6
+Graus de liberdade,186
+p-valor,1.3e-65
+Tamanho de efeito (d de Cohen = média de d / DP de d),1.95
+% com d > 0 / d = 0 / d < 0,93.0% / 6.4% / 0.5%
+Decisão (α = 5%),Rejeita H0

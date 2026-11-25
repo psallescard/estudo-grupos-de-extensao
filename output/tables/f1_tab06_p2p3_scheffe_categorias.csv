@@ -1,0 +1,7 @@
+Variável resposta,Contraste,Estimativa (diferença),IC 95% de Scheffé,p de Scheffé,Significativo?
+Ganho líquido,Consultoria & Negócios − Engenharia,0.94,[0.46; 1.43],1.8e-05,Sim
+Ganho líquido,Consultoria & Negócios − Mercado Financeiro,0.39,[-0.15; 0.92],0.2044,Não
+Ganho líquido,Engenharia − Mercado Financeiro,-0.55,[-1.17; 0.06],0.0897,Não
+Preparo nas disciplinas,Consultoria & Negócios − Engenharia,-0.81,[-1.20; -0.41],6.2e-06,Sim
+Preparo nas disciplinas,Consultoria & Negócios − Mercado Financeiro,-0.24,[-0.68; 0.20],0.3978,Não
+Preparo nas disciplinas,Engenharia − Mercado Financeiro,0.57,[0.06; 1.07],0.0231,Sim

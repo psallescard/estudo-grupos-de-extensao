@@ -1,0 +1,3 @@
+Variável testada,Qui-quadrado (χ²),Graus de liberdade,p-valor,"V de Cramér (0 = nenhuma, 1 = total)",Menor frequência esperada,% de caselas com esperado < 5,Decisão (α = 5%)
+Horas semanais no grupo,26.15,4,2.9e-05,0.374,7.64,0%,Rejeita H0
+Tempo no grupo,7.37,3,0.0611,0.198,3.64,12%,Não rejeita H0

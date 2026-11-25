@@ -1,0 +1,5 @@
+Variável,n,Média,Desvio-padrão,Mínimo,1º quartil,Mediana,3º quartil,Máximo,% nota 5
+Preparo profissional na extensão (1–5),187,4.59,0.58,3,4.0,5.0,5.0,5,63.64
+Preparo profissional nas disciplinas (1–5),187,2.32,0.95,1,2.0,2.0,3.0,4,0.0
+Ganho líquido (extensão − disciplinas; de −4 a 4),187,2.27,1.17,-1,1.5,2.0,3.0,4,
+Importância da média ponderada (1–5),187,2.93,1.05,1,2.0,3.0,4.0,5,5.35

@@ -1,0 +1,7 @@
+Cenário,Valor estimado (média do perfil),IC 95% da média,IP 95% individual
+"Consultoria & Negócios, 6 a 10h",2.16,[1.88; 2.43],[0.06; 4.25]
+"Consultoria & Negócios, 21 a 40h",2.69,[2.48; 2.90],[0.60; 4.78]
+"Engenharia, 6 a 10h",1.48,[1.17; 1.80],[-0.62; 3.59]
+"Engenharia, 21 a 40h",2.02,[1.66; 2.38],[-0.09; 4.13]
+"Mercado Financeiro, 6 a 10h",2.02,[1.65; 2.38],[-0.09; 4.13]
+"Mercado Financeiro, 21 a 40h",2.55,[2.16; 2.95],[0.44; 4.67]

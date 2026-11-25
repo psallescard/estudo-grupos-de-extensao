@@ -1,0 +1,9 @@
+,ANOVA de 1 fator: importância da média por objetivo atual
+F,15.82
+gl (fator; resíduo),4; 175
+p-valor,4.5e-11
+η² (variância explicada),0.266
+Decisão (α = 5%),Rejeita H0
+Bartlett (χ²),3.78
+p Bartlett,0.4369
+Variâncias homogêneas?,Sim (não rejeita H0)

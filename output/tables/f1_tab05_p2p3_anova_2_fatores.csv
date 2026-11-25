@@ -1,0 +1,7 @@
+Variável resposta,Fator,p sozinho (ANOVA 1 fator),F parcial (controlando o outro fator),gl,p parcial,η² parcial,Decisão (α = 5%)
+Ganho líquido,Categoria do grupo,1.6e-05,10.25,2; 180,6.1e-05,0.102,Rejeita H0
+Ganho líquido,Grande área do curso,0.0380,1.99,4; 180,0.0977,0.042,Não rejeita H0
+Preparo nas disciplinas,Categoria do grupo,6.2e-06,11.65,2; 180,1.7e-05,0.115,Rejeita H0
+Preparo nas disciplinas,Grande área do curso,0.0328,2.25,4; 180,0.0652,0.048,Não rejeita H0
+Preparo na extensão,Categoria do grupo,0.2600,1.45,2; 180,0.2375,0.016,Não rejeita H0
+Preparo na extensão,Grande área do curso,0.3459,1.17,4; 180,0.3235,0.025,Não rejeita H0
