@@ -1,0 +1,3 @@
+,F,gl (fator; resíduo),p-valor,η² (variância explicada),Decisão (α = 5%),Bartlett (χ²),p Bartlett,Variâncias homogêneas?
+ANOVA de 1 fator: Importância da média ponderada (1–5) por área pretendida,2.74,5; 181,0.0207,0.07,Rejeita H0,4.85,0.4348,Sim (não rejeita H0)
+ANOVA de 1 fator: Média ponderada (ponto médio da faixa) por área pretendida,0.34,5; 178,0.8879,0.009,Não rejeita H0,10.46,0.0631,Sim (não rejeita H0)

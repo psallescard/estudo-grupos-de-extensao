@@ -1,0 +1,18 @@
+Análise,Contraste,Estimativa (diferença),IC 95% de Scheffé,p de Scheffé,Significativo?
+Importância da média — contraste a priori,"Média simples de {Mercado Financeiro, Consultoria} − das demais áreas",-0.45,[-0.98; 0.07],0.1402,Não
+Média ponderada — contraste a priori,"Média simples de {Mercado Financeiro, Consultoria} − das demais áreas",-0.11,[-0.62; 0.41],0.9925,Não
+Importância da média — todos os pares,Mercado Financeiro − Consultoria,-0.14,[-0.91; 0.64],0.9967,Não
+Importância da média — todos os pares,Mercado Financeiro − Empreendedorismo,-0.41,[-1.34; 0.52],0.8249,Não
+Importância da média — todos os pares,Mercado Financeiro − Indústria/Engenharia,-0.69,[-1.42; 0.03],0.0713,Não
+Importância da média — todos os pares,Mercado Financeiro − Tecnologia,-0.32,[-1.18; 0.54],0.8987,Não
+Importância da média — todos os pares,Mercado Financeiro − Indefinido,-0.66,[-1.57; 0.26],0.3262,Não
+Importância da média — todos os pares,Consultoria − Empreendedorismo,-0.27,[-1.27; 0.72],0.9733,Não
+Importância da média — todos os pares,Consultoria − Indústria/Engenharia,-0.56,[-1.36; 0.24],0.3648,Não
+Importância da média — todos os pares,Consultoria − Tecnologia,-0.19,[-1.12; 0.74],0.9930,Não
+Importância da média — todos os pares,Consultoria − Indefinido,-0.52,[-1.50; 0.46],0.6645,Não
+Importância da média — todos os pares,Empreendedorismo − Indústria/Engenharia,-0.29,[-1.24; 0.67],0.9609,Não
+Importância da média — todos os pares,Empreendedorismo − Tecnologia,0.08,[-0.98; 1.14],0.9999,Não
+Importância da média — todos os pares,Empreendedorismo − Indefinido,-0.25,[-1.36; 0.86],0.9888,Não
+Importância da média — todos os pares,Indústria/Engenharia − Tecnologia,0.37,[-0.51; 1.25],0.8517,Não
+Importância da média — todos os pares,Indústria/Engenharia − Indefinido,0.04,[-0.90; 0.97],1.0000,Não
+Importância da média — todos os pares,Tecnologia − Indefinido,-0.33,[-1.38; 0.71],0.9489,Não
