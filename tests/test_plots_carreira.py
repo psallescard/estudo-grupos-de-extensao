@@ -23,7 +23,8 @@ def df():
     return prepare_front_data(pd.read_parquet(DATA))
 
 
-def test_all_figures_are_written(df, tmp_path):
+def test_all_figures_are_written(df, tmp_path, monkeypatch):
+    monkeypatch.setattr(matplotlib.pyplot, "show", lambda *args, **kwargs: None)  # no-op under Agg
     plot_category_distribution(df, [("area_pretendida", "Área"), ("estagio_antecipado", "Estágio")], tmp_path / "a.png")
     plot_stacked_shares(pd.crosstab(df["categoria_grupo"], df["area_grupo"]), "Título", "Legenda", tmp_path / "b.png")
     means = group_means(df, "importancia_media", "grande_area_curso")
@@ -32,3 +33,4 @@ def test_all_figures_are_written(df, tmp_path):
     plot_scenario_probabilities(model, build_scenarios(df), tmp_path / "d.png")
     plot_residual_diagnostics(model, tmp_path / "e.png")
     assert all((tmp_path / f"{name}.png").stat().st_size > 0 for name in "abcde")
+    matplotlib.pyplot.close("all")
