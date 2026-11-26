@@ -1,0 +1,3 @@
+Teste,Qui-quadrado (χ²),Graus de liberdade,p-valor,"V de Cramér (0 = nenhuma, 1 = total)",Menor frequência esperada,% de caselas com esperado < 5,Decisão (α = 5%)
+P1a: área pretendida × categoria do grupo,95.02,8,4.4e-17,0.504,3.64,20%,Rejeita H0
+P1b: área pretendida × grande área do curso (sem Indefinido),60.43,12,1.9e-08,0.347,3.02,10%,Rejeita H0
