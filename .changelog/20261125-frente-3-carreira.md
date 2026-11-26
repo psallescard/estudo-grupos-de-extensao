@@ -23,7 +23,7 @@ Registrar a implementação da Frente 3 (`notebooks/02_Carreira_Trajetoria_Objet
   - figuras `output/figures/f3_fig01` a `f3_fig09`, adicionadas ao git com `git add -f` (a pasta `figures/` está no `.gitignore`, mas as figuras da Frente 1 são versionadas do mesmo jeito);
   - resumo `output/f3_resumo_para_relatorio.md`, montado para cerca de 6 páginas.
 - **Perguntas do guia cortadas:**
-  - **P5** (o estágio derruba as horas no grupo): praticamente ninguém da amostra está estagiando;
+  - **P5** (o estágio derruba as horas no grupo): o questionário não pergunta se o aluno estagia hoje, e a maior parte da amostra (124 de 187 alunos, no 1º ou 2º ano) ainda não chegou à idade usual de estágio, então o efeito de começar a estagiar não pode ser testado;
   - **P8** (prever a área pretendida): com 6 áreas, n = 187 e sem regressão logística, a previsão não se sustenta.
 
 ## Decisões analíticas
@@ -55,7 +55,7 @@ Registrar a implementação da Frente 3 (`notebooks/02_Carreira_Trajetoria_Objet
 - **V de Cramér pelas referências do $k$ de cada tabela** (Cohen: V = w/√k, com $k$ = min(linhas, colunas) − 1). Para $k = 1$: 0,10/0,30/0,50; $k = 2$: 0,07/0,21/0,35; $k = 3$: 0,06/0,17/0,29. Por isso a P2 (V = 0,20, $k = 3$) é lida como associação moderada, e não fraca como dizia o plano.
 - **P6:** a hipótese do guia virou um contraste definido a priori ({Mercado Financeiro, Consultoria} − demais áreas), testado por Scheffé. Como a ANOVA da importância foi significativa e o contraste não, o Scheffé também foi aplicado aos 15 pares (como na Frente 1). η² = 0,07 é lido como efeito pequeno a moderado pelas referências de Cohen para η² (0,01/0,06/0,14).
 - **P7, modelo de probabilidade linear:** a regressão logística está fora da disciplina. O modelo completo tem 6 blocos definidos a priori (categoria, grande área, ano, objetivo, tempo no grupo e ln(horas)), e a eliminação para trás retira o bloco de maior p enquanto p ≥ 0,05. Limitações declaradas: previsões fora de 0–100%, variância não constante e resíduos não normais.
-- **Efeito mecânico do ano na P7:** a resposta vale 1 para "antes do 3º ano" ou "no 3º ano". Só fica impedido de responder "até o 3º ano" quem está no 4º ano ou depois e ainda não estagiou (9 alunos); para quem está no 3º ano, "No 3º ano" continua sendo uma resposta possível. A restrição explica, portanto, parte da queda em "3º ano ou mais" (toda ela só para os alunos do 4º e do 5º ano), e a diferença entre o 1º e o 2º ano (−26 pontos; p = 0,007) não é mecânica: é uma associação entre turmas. O ano entra principalmente como controle (o texto do plano, que tratava toda a queda como mecânica, foi corrigido).
+- **Efeito mecânico do ano na P7:** a resposta vale 1 para "antes do 3º ano" ou "no 3º ano". Só fica impedido de responder "até o 3º ano" quem está no 4º ano ou depois e ainda não estagiou. São 9 alunos no 4º ou 5º ano: 7 responderam "4º ano ou depois" e 2 responderam "No 3º ano" (provavelmente já estagiaram; para os mais velhos, a variável é em parte retrospectiva, não só intenção). Para quem está no 3º ano, "No 3º ano" continua sendo uma resposta possível. A restrição explica, portanto, parte da queda em "3º ano ou mais", e a diferença entre o 1º e o 2º ano (−26 pontos; p = 0,007) não é mecânica: é uma associação entre turmas. O ano entra principalmente como controle (o texto do plano, que tratava toda a queda como mecânica, foi corrigido).
 - **Linguagem:** associativa, não causal. O momento do estágio mede intenção, e a P4 compara turmas, não acompanha as mesmas pessoas.
 
 ## Resultados
@@ -82,12 +82,13 @@ Registrar a implementação da Frente 3 (`notebooks/02_Carreira_Trajetoria_Objet
 
 Um revisor independente leu o notebook sem ler Python (passo 5 do plano) e confirmou a estrutura, as decisões e todos os números do texto. As correções aplicadas:
 
-- **Efeito do ano na P7:** o texto dizia que a queda com o ano era "sobretudo mecânica". Foi corrigido no notebook (quadro "Conceito" da P7, item "Efeito do ano" e conclusão (e)), no resumo e neste registro: a restrição só é completa para os 9 alunos do 4º ou 5º ano, explica parte da queda em "3º ano ou mais", e a diferença entre o 1º e o 2º ano (−26 pontos; p = 0,007) é uma associação entre turmas.
+- **Efeito do ano na P7:** o texto dizia que a queda com o ano era "sobretudo mecânica". Foi corrigido no notebook (quadro "Conceito" da P7, item "Efeito do ano" e conclusão (e)), no resumo e neste registro: a restrição explica parte da queda em "3º ano ou mais" (dos 9 alunos do 4º ou 5º ano, 7 responderam "4º ano ou depois" e 2 "No 3º ano"), e a diferença entre o 1º e o 2º ano (−26 pontos; p = 0,007) é uma associação entre turmas.
 - **Rótulos em PT-BR nas tabelas impressas:**
   - `f3_tab02`: a coluna "Variável" mostra nomes legíveis ("Categoria do grupo", "Área pretendida", "Motivação de ingresso", "Objetivo atual", "Ano na Poli", "Momento do 1º estágio", "Faixa da média ponderada") no lugar dos nomes de coluna crus, por um dicionário `GROUPING_LABELS` em `src/carreira.py`;
   - tabelas de contingência, percentuais e resíduos (P1, P2, P3, P4 e checagem ordinal da P6): os eixos ganharam nomes em PT-BR, o que muda só o cabeçalho de `f3_tab03`, `f3_tab04`, `f3_tab06` a `f3_tab08`, `f3_tab10`, `f3_tab11`, `f3_tab13` e `f3_tab15` (nenhum número muda);
   - P7: a tabela de proporções por ano mostra "Proporção que pretende estagiar até o 3º ano", "n" e "Ano na Poli";
   - `display.max_colwidth` sem limite, para que "Motivo" e os rótulos dos coeficientes não apareçam cortados.
+- **Revisão final da branch (só texto, nenhum número mudou):** a restrição do ano descrita com os 9 alunos do 4º ou 5º ano (7 "4º ano ou depois", 2 "No 3º ano"); validade aproximada dos testes F da P7 justificada pela faixa dos valores previstos, não só pelo n; "de magnitude modesta" removido da P2; "pequena (0,07)" → "fraca (0,07)" na checagem ordinal da P6; motivo do corte da P5 reescrito (o questionário não pergunta sobre estágio atual e 124 de 187 alunos estão no 1º ou 2º ano); os −23 pontos da P7 descritos como probabilidade de pretender estagiar até o 3º ano.
 - Antes da revisão, também foram aplicadas as correções de texto acumuladas nas revisões anteriores: base dos percentuais da `f3_tab01` explicada no texto; conclusões (e) da P1, P6 e P7 encurtadas; η² = 0,07 lido como efeito pequeno a moderado ("está associada a 7% da variação"); "não diferem de Civil & Ambiental" trocado por "não se distinguem significativamente".
 
 ## Pontos de atenção
